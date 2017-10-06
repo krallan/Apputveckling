@@ -3,10 +3,6 @@ package com.example.krallan.assignment2;
 import java.io.IOException;
 import java.net.Socket;
 
-/**
- * Created by Krallan on 2017-09-28.
- */
-
 public class Connection {
 
     public static final String SERVER_IP = "195.178.225.53";

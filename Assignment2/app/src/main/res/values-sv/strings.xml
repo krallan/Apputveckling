@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Assignment2</string>
+    <string name="createGroupButton">Skapa Grupp</string>
+    <string name="disconnectButton">Koppla från grupp</string>
+    <string name="joinGroupButton">Anslut till grupp</string>
+    <string name="registerButton">Registrera</string>
+    <string name="registerName">Namn</string>
+    <string name="title_activity_login">Logga in</string>
+    <string name="title_activity_maps">Karta</string>
+</resources>

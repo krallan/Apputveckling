@@ -5,10 +5,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.Socket;
 
-/**
- * Created by Krallan on 2017-09-28.
- */
-
 public class Reader{
 
     private Socket socket;
