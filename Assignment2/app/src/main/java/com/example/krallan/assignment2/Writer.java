@@ -6,23 +6,30 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.Socket;
 
-public class Writer {
+public class Writer implements Runnable {
     private Socket socket;
-
+    private Buffer buffer;
     private OutputStream opStream;
     private DataOutputStream doStream;
 
-    public Writer(Socket socket){
+    public Writer(Socket socket, Buffer buffer){
         this.socket = socket;
-
+        this.buffer = buffer;
+    }
+    @Override
+    public void run() {
         try{
+            System.out.println("Writer started");
             opStream = socket.getOutputStream();
-        }catch(IOException e){
+            doStream = new DataOutputStream(opStream);
+            while(Thread.interrupted()==false){
+                String message = buffer.get();
+                doStream.writeUTF(message);
+                doStream.flush();
+                System.out.println("Client writer: " + message);
+            }
+        }catch(Exception e){
             e.printStackTrace();
         }
-        doStream = new DataOutputStream(opStream);
-    }
-    public DataOutputStream getStream (){
-        return doStream;
     }
 }

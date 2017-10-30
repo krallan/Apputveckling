@@ -1,6 +1,7 @@
 package com.example.krallan.assignment2;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -26,8 +27,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         if(view.getId()== R.id.registerButton){
             String name = editTextName.getText().toString();
             if(name.length()> 0){
+                SharedPreferences sharedPreferences = getSharedPreferences("USER",0);
+                sharedPreferences.edit().putString("USER", name).commit();
                 Intent intent = new Intent(this, MainActivity.class);
-                intent.putExtra("name", name);
                 startActivity(intent);
             }else{
 
